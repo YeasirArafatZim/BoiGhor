@@ -48,14 +48,14 @@
 			$sub_total = 0; 
 			$total = 0; 
 			$grand_total = 0;
-			
+			$total_delivery_crge = 0;
 			$q1 = mysql_query("select * from order_info where status = 'Pending' order by id desc");
 			while($r1 = mysql_fetch_array($q1))
 			{
 			
 			$date_time 			  = $r1['date_time'];
 			$uniq_id 			  = $r1['uniq_id'];
-			//$total_delivery_crge  = $r1['total_delivery_crge'];
+			$total_delivery_crge  = $r1['total_delivery_crge'];
 			$status 			  = $r1['status'];
 			$customer_id 		  = $r1['customer_id'];
 			
@@ -83,7 +83,7 @@
 				
 			}
 			
-			$GrandTotal 	= $TotalOrderAmt;
+			$GrandTotal 	= $TotalOrderAmt + $total_delivery_crge;
 			
 			?>
 			<div class="row" style="border-bottom:solid 1px #CCCCCC;">
@@ -173,7 +173,7 @@
 			
 			$date_time 			  = $r1['date_time'];
 			$uniq_id 			  = $r1['uniq_id'];
-			//$total_delivery_crge  = $r1['total_delivery_crge'];
+			$total_delivery_crge  = $r1['total_delivery_crge'];
 			$status 			  = $r1['status'];
 			$customer_id 		  = $r1['customer_id'];
 			
@@ -201,7 +201,7 @@
 				
 			}
 			
-			$GrandTotal 	= $TotalOrderAmt;
+			$GrandTotal 	= $TotalOrderAmt + $total_delivery_crge;
 			
 			?>
 			<div class="row" style="border-bottom:solid 1px #CCCCCC;">
@@ -232,7 +232,7 @@
 				</div>
 				<div class="col-md-1">
 				<div class="row" align="center">
-				 <a href="pro_order_delete_action.php?uniq_id=<?php echo $uniq_id; ?>"><img src="../image/delete.png"></a>
+				<a href="product_order_details1.php?OrderNO=<?php echo $uniq_id; ?>"><img src="../image/details.png"></a> || <a href="pro_order_delete_action.php?uniq_id=<?php echo $uniq_id; ?>"><img src="../image/delete.png"></a>
 				</div>
 			</div>
 			</div>

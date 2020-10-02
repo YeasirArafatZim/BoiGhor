@@ -110,7 +110,7 @@
 				
 				$date_time 			  = $r1['date_time'];
 				$uniq_id 			  = $r1['uniq_id'];
-				//$total_delivery_crge  = $r1['total_delivery_crge'];
+				$total_delivery_crge  = $r1['total_delivery_crge'];
 				$status 			  = $r1['status'];
 				$customer_id 		  = $r1['customer_id'];
 				
@@ -138,7 +138,7 @@
 					
 				}
 				
-				$GrandTotal 	= $TotalOrderAmt;
+				$GrandTotal 	= $TotalOrderAmt + $total_delivery_crge;
 				
 				?>
 				<div class="row" style="border-bottom:solid 1px #CCCCCC;">

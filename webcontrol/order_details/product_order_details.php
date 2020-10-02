@@ -1,17 +1,17 @@
 <?php
 	require_once("../uservelidation.php");
 	require_once("../connect_db.php");
-
+	
 	$OrderNO = htmlspecialchars($_REQUEST['OrderNO'], ENT_QUOTES, 'UTF-8');
-
+	
 	$q1 = mysql_query("select * from order_details where uniq_id = '$OrderNO'");
 	$r1 = mysql_fetch_array($q1);
-
+	
 	$customer_id  = $r1['customer_id'];
 	$uniq_id      = $r1['uniq_id'];
 	$order_from   = $r1['order_from'];
 	$order_status = $r1['order_status'];
-
+	
 	$q11 = mysql_query("select email from registration_form where id = '$customer_id'");
 	$r11 = mysql_fetch_array($q11);
 	$email = $r11[0];
@@ -27,29 +27,29 @@
 <title><?php require_once("../title.php"); ?></title>
 
 	<!-- bootstrap  start -->
-    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.min.js"></script> 
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/font-awesome.min.css" rel="stylesheet">
 	<!-- bootstrap  end -->
-
+	
 	<!-- menu start -->
 	<link rel="stylesheet" href="../menu/styles.css">
    	<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
    	<script src="../menu/script.js"></script>
 	<!-- menu start -->
-
+	
 	<link rel="stylesheet" href="../css_2/style_1.css">
-
+	
 </head>
 <body style="background-color:#FFFFFF;">
 <div class="row" style="width:100%; padding-bottom:20px;">
-
+	
 		<?php require_once("../header.php");?>
-
+	
 		<div class="col-md-2">
 			<?php require_once("../left_menu.php");?>
 		</div>
-
+		
 	<div class="col-md-10">
 		<div class="row shadow1" style="padding-top:10px; padding-bottom:10px; margin-top:15px; padding-left:15px;">
 			<strong style="font-size:20px;">Product Order Details</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Control panel</span>
@@ -58,23 +58,23 @@
         <?php
 		  		$q4321 = mysql_query("select * from registration_form where email = '$email'");
 				$r4321 = mysql_fetch_array($q4321);
-
+				
 				$cust_name     = $r4321['d_name'];
 				$cust_phone    = $r4321['d_phone_no'];
 				$d_email       = $r4321['d_email'];
 				$cust_address  = $r4321['d_address'];
-
-
+				
+			
 				$q1 = mysql_query("select * from order_info where uniq_id = '$OrderNO'");
 				$r1 = mysql_fetch_array($q1);
-
+			
 				$date_time 			    = $r1['date_time'];
 				$uniq_id 				= $r1['uniq_id'];
 				$total_delivery_crge 	= $r1['total_delivery_crge'];
 				$status 				= $r1['status'];
-
+				
 		  ?>
-
+		  
 		<div class="row" style="padding-top:20px;">
 			<div class="col-md-12">
 				<div class="row">
@@ -97,12 +97,12 @@
 					<div class="col-md-8" style="color:#666666;">: <?php echo $cust_address; ?></div>
 				</div>
 				</div>
-
-
+				
+				
 				<?php
 					$q99 = mysql_query("select * from payment_process where uniq_id = '$uniq_id'");
 					$r99 = mysql_fetch_array($q99);
-
+					
 					$payment_type     		= $r99['payment_type'];
 					$receipt_number     	= $r99['receipt_number'];
 					$bank_account_number    = $r99['bank_account_number'];
@@ -112,15 +112,28 @@
 					$trxid     				= $r99['trxid'];
 					$payment_date     		= $r99['payment_date'];
 				?>
-
-				<?php if($payment_type == 1) { ?>
+				
+				<?php if($payment_type == 1) { ?> 
 				<div class="col-md-6">
-				<strong style="font-size:18px; color:#666666; margin-left:15px; border-bottom:solid 1px #666666;">Point Payment Details</strong>
-
-
-
-				<div   style = "padding-top:1.5%">
-					<div class="col-md-4" style="text-align:left; color:#666666;">Total Points</div>
+				<strong style="font-size:18px; color:#666666; margin-left:15px; border-bottom:solid 1px #666666;">Bank Payment Details</strong>
+				<div style="padding-top:10px;">
+					<div class="col-md-4" style="text-align:left; color:#666666;">Receipt Number</div>
+					<div class="col-md-8" style="color:#666666;">: <?php echo $receipt_number; ?></div>
+				</div>
+				<div>
+					<div class="col-md-4" style="text-align:left; color:#666666;">Bank Account Number</div>
+					<div class="col-md-8" style="color:#666666;">: <?php echo $bank_account_number; ?></div>
+				</div>
+				<div>
+					<div class="col-md-4" style="text-align:left; color:#666666;">Bank Account Name</div>
+					<div class="col-md-8" style="color:#666666;">: <?php echo $bank_account_name; ?></div>
+				</div>
+				<div>
+					<div class="col-md-4" style="text-align:left; color:#666666;">Bank Name</div>
+					<div class="col-md-8" style="color:#666666;">: <?php echo $bank_name; ?></div>
+				</div>
+				<div>
+					<div class="col-md-4" style="text-align:left; color:#666666;">Amount</div>
 					<div class="col-md-8" style="color:#666666;">: <?php echo $amount; ?></div>
 				</div>
 				<div>
@@ -149,10 +162,10 @@
 				</div>
 				</div>
 				 <?php } ?>
-
-
+				
+				
 				</div>
-
+						
 				<div class="row" style="padding-top:5px; padding-bottom:5px; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC; background-color:#F8F8F8; margin-top:40px;">
 			<div class="col-md-1">
 				<div class="row" style="padding-left:5px;">
@@ -176,9 +189,7 @@
 			</div>
 			<div class="col-md-1">
 				<div class="row">
-				 <strong> <?php if($payment_type==1)
-				 echo Points;
-				 else echo Price; ?> </strong>
+				 <strong>Price</strong>
 				</div>
 			</div>
 			<div class="col-md-1">
@@ -186,7 +197,7 @@
 				<strong>Quantity</strong>
 				</div>
 			</div>
-
+            
 			<div class="col-md-1">
 				<div class="row" align="right">
 				 <strong>Total</strong>
@@ -196,18 +207,19 @@
 	<?php
 		$i = 1;
   		$sub_total = 0;
-		$total = 0;
+		$subsub_total = 0; 
+		$total = 0; 
 		$grand_total = 0;
-
+		
 		$q1 = mysql_query("select * from order_info where uniq_id = '$OrderNO'");
 		$r1 = mysql_fetch_array($q1);
-
-
+		
+			
 			$date_time 			    = $r1['date_time'];
 			$uniq_id 				= $r1['uniq_id'];
 			$total_delivery_crge 	= $r1['total_delivery_crge'];
 			$status 				= $r1['status'];
-
+		
 		$qa2 = mysql_query("select * from order_details where uniq_id = '$uniq_id'");
 		while($ra2 = mysql_fetch_array($qa2))
 		{
@@ -215,32 +227,30 @@
 			$product_qty 	 = $ra2['product_qty'];
 			$product_price 	 = $ra2['product_price'];
 			$order_date_time = $ra2['order_date_time'];
-
+			
 			$product_price_decimal = number_format($product_price, 2, '.', ',');
-
+			
+			
 			$duly2 = mysql_query("select * from products_manage where id = '$product_id'");
-			$ras2 = mysql_fetch_array($duly2);
-
+			$ras2 = mysql_fetch_array($duly2);	
+			
 			//$root_cat_id 	= $ras2['root_cat_id'];
 			$product_name 	= $ras2['name'];
 			$product_code 	= $ras2['product_code'];
 			$font_item 		= $ras2['image'];
-
-
-			if($payment_type == 2){
-				$total_price 		= $product_qty*$product_price;
-				$sub_total 			= $sub_total + $total_price;
-				$total 				= $sub_total;
-			}
-			else{
-				$total_price 		= $product_qty*$product_price*3;
-				$sub_total 			= $sub_total + $total_price;
-				$total 				= $sub_total;
-			}
-
+			
+			
+			
+			$total_price 		= $product_qty*$product_price;			
+			$sub_total 			= $sub_total + $total_price;			
+			$total 				= $sub_total;
+			
+			
 			$sub_total_decimal 			= number_format($sub_total, 2, '.', ',');
 			$total_price_decimal 		= number_format($total_price, 2, '.', ',');
-
+			
+			$final_total = $sub_total+$total_delivery_crge;
+			
 			//$total_delivery_charge = number_format($total_delivery_crge, 2, '.', ',');
 			//$grand_total = $sub_total + $total_delivery_charge;
 			$grand_total_decimal = number_format($grand_total, 2, '.', ',');
@@ -268,10 +278,7 @@
 				</div>
 				<div class="col-md-1">
 				<div class="row">
-				<?php
-						if(payment_type==2)
-				echo $product_price_decimal;
-				else echo $product_price_decimal ?>
+				<?php echo $product_price_decimal; ?>Tk.
 				</div>
 				</div>
 				<div class="col-md-1">
@@ -285,56 +292,59 @@
 				</div>
 				</div>
 			</div>
-
+         
 			<?php
 				}
 			?>
-
-			<div class="row pull-right" style="border-bottom:solid 1px #CCCCCC;">
-				<div class="col-md-9">
-
-										<strong>Delivery Cost</strong>
-
+			<div class="row" align="right">
+			
+			<div class="col-md-9"></div>
+				<div class="col-md-2">
+                    <strong>Sub Total Amount =</strong>
 				</div>
-
-				<div class="col-md-3" >
-										<?php if($payment_type == 1)
-										echo 180;
-										else echo 60; ?>
+                
+				<div class="col-md-1">
+                    <?php echo $sub_total_decimal; ?>
 				</div>
+                
 			</div>
-</br>
-</br>
-			<div class="row pull-right" style="border-bottom:solid 1px #CCCCCC;">
-				<div class="col-md-6">
-
-                    <strong>Total</strong>
-
+			<div class="row" align="right">
+			
+			<div class="col-md-9"></div>
+				<div class="col-md-2">
+                    <strong>Delivery cost  =</strong>
 				</div>
-
-				<div class="col-md-6" style="padding-right: 2.5%;">
-                    <?php
-												if($payment_type==1){
-													echo $total+180;
-												}
-												else {
-													echo $total+60;
-												}
-										?>
+                
+				<div class="col-md-1">
+                    <?php echo $total_delivery_crge; ?>
 				</div>
+                
 			</div>
-
+			<div class="row" align="right">
+			
+			<div class="col-md-9"></div>
+				<div class="col-md-2">
+                    <strong>Total Amount  =</strong>
+				</div>
+                
+				<div class="col-md-1" style="border-top:1px #FF0000 solid;">
+                    <?php echo $final_total; ?>/=
+				</div>
+                
+			</div>
+			
+						
 			</div>
 		</div>
-
+		
         <div class="row" style="padding-top:20px;">
-
+            	
                 <label style="padding-top:20px;">Select Your Option</label>
 				<select name="order_status" id="order_status" class="form-control">
           <option <?php if($order_status == 'Pending') { ?> selected="selected" <?php } ?> value="Pending">Pending</option>
           <option value="Paid">Paid</option>
         </select>
-
+                
             </div><br/>
             <button class="btn btn-info">Submit</button>
 		</form>

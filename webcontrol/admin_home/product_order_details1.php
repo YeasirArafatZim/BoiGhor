@@ -336,17 +336,6 @@
 						
 			</div>
 		</div>
-		
-        <div class="row" style="padding-top:20px;">
-            	
-                <label style="padding-top:20px;">Select Your Option</label>
-				<select name="order_status" id="order_status" class="form-control">
-          <option <?php if($order_status == 'Pending') { ?> selected="selected" <?php } ?> value="Pending">Pending</option>
-          <option value="Paid">Paid</option>
-        </select>
-                
-            </div><br/>
-            <button class="btn btn-info">Submit</button>
 		</form>
 		</div>
 	</div>

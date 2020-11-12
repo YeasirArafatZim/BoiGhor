@@ -10,7 +10,7 @@
 	$status 			= 'Active';
 	$password 			= htmlspecialchars($_REQUEST['password']);
 	$userpass_md5 		= md5($password);
-	$password_con 		= htmlspecialchars($_REQUEST['password_con']);
+	
 
 
 	$folder = "webcontrol/registration_view/photo_gallery/";
@@ -28,7 +28,7 @@
 		{
 		move_uploaded_file($_FILES['image']['tmp_name'], $uploaddir);
 
-		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '$imgname', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5', '$password_con','$points')");
+		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '$imgname', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5','$points')");
 
 	} else {
 			?>
@@ -40,7 +40,7 @@
 		}
 
 	} else {
-		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5', '$password_con','$points')");
+		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5','$points')");
 	}
 
 

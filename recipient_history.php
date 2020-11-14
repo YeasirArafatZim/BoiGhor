@@ -40,7 +40,7 @@
 <!--Middle start-->
 <?php
 
-	$q1  = mysql_query("select user_id from donation where user_id = '$customer_id'");
+	$q1  = mysql_query("select user_id from recipient where user_id = '$customer_id'");
 	$ra1 = mysql_fetch_array($q1);
 	$customer_id_h = $ra1[0];
 	
@@ -54,47 +54,60 @@
 <table class="table table-striped table-hover">
 	<thead>
         <tr>
-            <th colspan="4" style="font-size:28px; color:#FF0000; font-weight:bold; padding-bottom:10px; padding-top:10px; text-align:center;">
-			Your Contributions
+            <th colspan="12" style="font-size:28px; color:#FF0000; font-weight:bold; padding-bottom:10px; padding-top:10px; text-align:center;">
+			Notifications for free book
 			</th>
         </tr>
 		<tr>
-            <th colspan="4" style="font-size:20px; color:#FF4242; padding-bottom:5px; text-align:center">
-			Thanks for your contribution. <a href="index.php"><span class="abc left2_btn left2_btn-1 left2_btn-1c" style="background:#FF0000;">OK</span></a>
+            <th colspan="12" style="font-size:20px; color:#FF4242; padding-bottom:5px; text-align:center">
+			We are sorry if you can't get that book <a href="index.php"><span class="abc left2_btn left2_btn-1 left2_btn-1c" style="background:#FF0000;">OK</span></a>
 			</th>
         </tr>
  
         <tr class="table-bordered">
-            <th width="180">SL NO	</th>
-            <th width="270">Invoice No</th>														
-            <th width="561" class="hidden-480">Date & Time</th>
-            <th width="298" class="hidden-480">Status</th>
+            <th width="100">SL NO	</th>
+            <th width="100">Invoice No</th>
+			<th width="250">Book Name</th>
+			<th width="250">Author</th>
+			<th width="100">Image</th>
+            <th width="120" class="hidden-480">Date</th>
+            <th width="280" class="hidden-480">Status</th>
         </tr>
     </thead>
     
     <tbody>
    <?php
-				$i = 1;
-				$sub_total = 0; 
-				$total = 0; 
-				$grand_total = 0;
-				
-				$q1 = mysql_query("select * from donation where user_id = '$customer_id' order by date desc");
+				$i=1;
+				$q1 = mysql_query("select * from recipient where user_id = '$customer_id' order by date desc");
 				while($r1 = mysql_fetch_array($q1))
 				{
 					
-					$uniq_id 				= $r1['id'];
+					$rid 					= $r1['id'];
 					$date 					= $r1['date'];
 					$status 				= $r1['status'];
-					$customer_id 			= $r1['customer_id'];
+					$uid					= $r1['user_id'];
+					$don_id 				= $r1['don_id'];
+					$result = mysql_query("SELECT book_name,author,image FROM donation WHERE id = '$don_id'");
+					$row = mysql_fetch_row($result);
+					$bname = $row[0];
+					$author = $row[1];
+					$image = $row[2];
+					
 					
 			 ?>
 			 
         <tr>    
             <td><?php echo $i++; ?></td>
-             <td class="hidden-480"><?php echo $uniq_id; ?>	</td>														
-            <td class="hidden-480"><?php echo $date; ?></td>
-            <td class="hidden-480"><?php echo $status; ?></td>
+             <td><?php echo $rid;?>	</td>														
+            <td class="hidden-480"><?php echo $bname ?></td>
+            <td class="hidden-480"><?php echo $author; ?></td>
+			<td><div class="col-md-1">
+				<div class="row">
+				<img class="img-responsive" src="/boighor/donation_photo/<?php echo $image; ?>">
+				</div>
+				</div>	</td>	
+			<td><?php echo $date;?>	</td>
+			<td><?php echo $status;?>	</td>
         </tr>
              
         <?php } ?>
@@ -106,12 +119,12 @@
 	<?php }else{?>
 <div class="row" style="padding-bottom:80px;">
 		<div align="center" style="font-size:28px; color:#FF0000; font-weight:bold; padding-bottom:30px; padding-top:20px;">
-			Your Contributions	
+			Notifications for free books
 		</div>
 		
 		<div class="row" style="border:solid 1px #00acee; border-radius:8px; margin-left:20px; margin-right:20px;">
 			<div class="col-md-12" align="center" style="font-size:24px; padding:50px 50px;">
-				You don't have any contributions.
+				You don't have any notifications
 			</div>
 		</div>
 </div>

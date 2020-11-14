@@ -55,72 +55,50 @@
 
 	<div class="col-md-10">
 		<div class="row" style="padding:0px 0px 10px 0px;">
-			<?php
-				$subdetails_id 			= $_REQUEST['subdetails_id'];
-				$res1 					= mysql_query("select * from products_category where id = '$subdetails_id'");
-				$row 					= mysql_fetch_array($res1);
-				$id 					= $row['id'];
-				$cat_name 			= $row['cat_name'];
-				$status 				= $row['status'];
-       		?>
+			
 			<div class="col-md-12">
 				<div style=" background-color:#39619c; border-radius:6px 6px 0px 0px; color:#FFFFFF; font-size:20px; padding:8px 0px 8px 10px;">
-					<?php echo $cat_name; ?>
+					This books are donated by our respected clients
 				</div>
 			</div>
 
 			<?php
-				$subdetails_id = $_REQUEST['subdetails_id'];
-				$a = 0;
-				$b = 4;
-
-				$id= 1;
-        $p2 = mysql_query("select id from products_sub_category where cat_id = '$subdetails_id'");
-  			while($q2 = mysql_fetch_array($p2))
-  			{
-  			$ID = $q2['id'];
-				$res1 = mysql_query("select * from products_manage where sub_cat_id = '$ID' order by id desc");
-				while($row = mysql_fetch_array($res1))
-				{
-				$pro_id 				= $row['id'];
-				$sub_cat_id 			= $row['sub_cat_id'];
-				$name 					= $row['name'];
-				$old_price 				= $row['old_price'];
-				$price 					= $row['price'];
-				$image 					= $row['image'];
-				$status 				= $row['status'];
-
-				if($a == 0) echo "<div>";
-				if($a <= $b)
-       		?>
+		    $p2 = mysql_query("select * from donation where status = 'Received' and quantity > 0");
+			while($q2 = mysql_fetch_array($p2))
+			{
+			$id 	= $q2['id'];
+			$uid	= $q2['user_id'];
+			$bname 	= $q2['book_name'];
+			$image 	= $q2['image'];
+			$status = $q2['status'];
+			$q1 = mysql_query("select name from registration_form where id = $uid");
+			$row = mysql_fetch_row($q1);
+			$uname = $row[0];
+			?>
 			<div class="col-md-3" style="padding-top:30px;">
 				<div class="col-md-12" style="border:solid 1px #39619c; padding-bottom:10px;">
 					<div class="row">
 						<div class="hovereffect">
-							<img class="img-responsive" src="webcontrol/product_manage/photo_gallery/<?php echo $image; ?>" alt="Products Image" style="height:200px;">
+							<img class="img-responsive" src="/boighor/donation_photo/<?php echo $image; ?>" alt="Products Image" style="height:200px; padding-left:20%">
 							<div class="overlay">
-							  <a class="info" href="product_details.php?pro_id=<?php echo $pro_id;?>">BUY NOW</a>
+							  <a class="info" href="donation_product_details.php?pro_id=<?php echo $id;?>">BUY NOW</a>
 							</div>
 						</div>
 					</div>
 					<div class="row" style="padding-left:5px; padding-right:5px;">
-						<div style="color:#333333; font-size:12px; text-align:justify; padding-bottom:10px; padding-top:10px;">
-						<?php echo $name; ?>
-						</div>
+						<div class="col-md-12" style="color:#666666; font-weight:bold; padding-bottom:10px; padding-top:10px;"> <?php echo $bname; ?> </div>
 						<div>
 							<div class="col-md-6">
 							<div class="row">
-								<?php if(!empty($old_price)){?>
-								<div style="color:#FF0000; font-size:12px; text-decoration:line-through; font-weight:bold;">Reg: ৳<?php echo $old_price; ?></div>
-								<?php } else { ?>
-								<div>&nbsp;</div>
-								<?php } ?>
-								<div style="font-size:12px;">Price: ৳<?php echo $price; ?></div>
+								
+								<div style="font-weight:bold;padding-left:5%">Donor Name</div>
+              
+								<div style="padding-left:5%"><?php echo $uname; ?></div>
 							</div>
 							</div>
 							<div class="col-md-6" align="right">
 							<div class="row">
-							<a href="product_details.php?pro_id=<?php echo $pro_id;?>"><span class="abc left2_btn left2_btn-1 left2_btn-1c" style="background:#FF0000;">View Details</span></a>
+							<a href="donation_product_details.php?pro_id=<?php echo $id;?>"><span class="abc left2_btn left2_btn-1 left2_btn-1c" style="background:#FF0000;">View Details</span></a>
 							</div>
 							</div>
 						</div>
@@ -131,7 +109,7 @@
                 $a++;
                 if($a == $b) echo "</div>";
                 if($a == $b) $a=0;
-              } }
+              } 
             ?>
 		</div>
 	</div>

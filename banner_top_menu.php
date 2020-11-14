@@ -86,7 +86,7 @@
         <li class='last'><a href='contact_us.php'><span >Contact Us</span></a></li>
 		<li> <li><a href='donation.php'><span >Donation</span></a></li> </li>
 				<?php if($customer_id !='') { ?>
-				<li class='last'><a href='customer_order_view.php'><span >History</span></a></li>
+				<li class='last'><a href='history_middle.php'><span >History</span></a></li>
 			<?php }?>
       </ul>
     </div>

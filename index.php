@@ -68,6 +68,56 @@
   </div>
   <!--Left menu & slider end-->
   <!--Middle start-->
+  
+  
+  
+  <div class="row" style="padding:5px 0px 10px 0px;">
+    <div class="col-md-12">
+      <div style=" background-color:#39619c; border-radius:8px 8px 0px 0px; color:#FFFFFF; font-size:20px; padding:10px 0px 10px 10px;"> <span style="text-align:left;">This books are donated by our respected clients</span> <span class="more_products_style" style="float:right; padding-right:20px;"> <a href='more_details_donation.php'><span>More Products</span></a> </span> </div>
+    </div>
+    <?php
+		    $p2 = mysql_query("select * from donation where status = 'Received' and quantity > 0");
+			while($q2 = mysql_fetch_array($p2))
+			{
+			$id 	= $q2['id'];
+			$uid	= $q2['user_id'];
+			$bname 	= $q2['book_name'];
+			$image 	= $q2['image'];
+			$status = $q2['status'];
+			$q1 = mysql_query("select name from registration_form where id = $uid");
+			$row = mysql_fetch_row($q1);
+			$uname = $row[0];
+		?>
+    <div class="col-md-3" style="padding-top:25px;">
+      <div class="col-md-12" style="border:solid 1px #39619c; padding-bottom:10px;">
+        <div class="row">
+          <div class="hovereffect"><img class="img-responsive" src="/boighor/donation_photo/<?php echo $image; ?>" alt="product image" style="height:200px; padding-left:60px; padding-top:30px;">
+            <div class="overlay"> <a class="info" href="donation_product_details.php?pro_id=<?php echo $id;?>">FREE ORDER</a> </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" style="color:#666666; font-weight:bold; text-align:justify; padding-bottom:10px; padding-top:10px;"> <?php echo $bname; ?> </div>
+          <div>
+            <div class="col-md-6">
+              <div style="font-weight:bold;">Donor Name</div>
+              
+              <div><?php echo $uname; ?></div>
+            </div>
+            <div class="col-md-6" align="center">
+              <div class="row"> <a href="donation_product_details.php?pro_id=<?php echo $id;?>"><span class="abc left1_btn left1_btn-1 left1_btn-1c" style="background:#FF0000;">View Details</span></a> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	<?php } ?>
+  </div>
+  
+  
+  
+  
+  
+  
   <?php
 		$res1 = mysql_query("select * from products_category order by cat_name asc");
 		while($row = mysql_fetch_array($res1)){
@@ -75,19 +125,27 @@
 		$id 				= $row['id'];
 		$cat_name 		= $row['cat_name'];
 		$status 			= $row['status'];
-	?>
+	?>	
+	
+	
   <div class="row" style="padding:5px 0px 10px 0px;">
     <div class="col-md-12">
       <div style=" background-color:#39619c; border-radius:8px 8px 0px 0px; color:#FFFFFF; font-size:20px; padding:10px 0px 10px 10px;"> <span style="text-align:left;"><?php echo $cat_name; ?></span> <span class="more_products_style" style="float:right; padding-right:20px;"> <a href='more_details.php?subdetails_id=<?php echo $id; ?>'><span>More Products</span></a> </span> </div>
     </div>
     <?php
 		  $p2 = mysql_query("select id from products_sub_category where cat_id = '$id'");
+		  $count = 0;
 			while($q2 = mysql_fetch_array($p2))
 			{
 			$ID = $q2['id'];
-			$p1 = mysql_query("select * from products_manage where sub_cat_id = '$ID' order by id desc limit 0,4");
+			$p1 = mysql_query("select * from products_manage where sub_cat_id = '$ID' order by id desc");
+			
 			while($q1 = mysql_fetch_array($p1))
 			{
+			$count = $count + 1;
+			if($count > 4)
+				break;
+
 			$pro_id 				= $q1['id'];
 			$sub_cat_id 			= $q1['sub_cat_id'];
 			$name 					= $q1['name'];
@@ -127,10 +185,6 @@
 
 
   <?php require_once("footer.php"); ?>
-
-
-
-
 
 </div>
 

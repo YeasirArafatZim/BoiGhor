@@ -1,16 +1,42 @@
 <?php
 	session_start(); 
-	require_once("webcontrol/connect_db.php");
-
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+  .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button2 {
+  background-color: #008CBA;
+  color: white;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: white; 
+  color: black; 
+}
+
+
+</style>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<title><?php require_once("title.php"); ?></title>
 	<?php require_once("metatag.php"); ?>
 <!--Banner start-->	
@@ -25,7 +51,17 @@
    <script src="top_menu/script.js"></script>
 <!--Top menu end-->
 
+<!--Left menu start-->
+	<link rel="stylesheet" href="left_menu/styles.css">
+<!--Left menu end-->
+
+<!--slider start-->
+	<link rel="stylesheet" type="text/css" href="slider/images/demo/cloud-fly/engine1/style.css" />
+	<script type="text/javascript" src="slider/images/demo/jquery.js"></script>
+<!--slider menu end-->
+
 <!--Anather start-->	
+	<link href="css_2/image_effect.css" rel="stylesheet">
 	<link href="css_2/styles_1.css" rel="stylesheet">
 <!--Anather end-->
 <link rel="icon" href="image/fav.png" type="image/png" />
@@ -38,25 +74,26 @@
 <!--Banner Top menu end-->
 
 <!--Middle start-->
-	<div class="row">
-		<div align="center" style="font-size:28px; color:#FF0000; font-weight:bold; padding-bottom:30px; padding-top:20px;">
-			Donation
-		</div>
-		
-		<div class="col-md-12">
-			<div class="col-md-12" style="border:solid 1px #FF0000; border-radius:15px; padding-bottom:20px; padding-top:10px;">
-				<h4 style="color:#FF0000; font-size:22px;">The value of life is not in its duration, but in its donation</h4>
-				<div style="color:#666666; text-align:justify;">
-			 	<p><span style="color:#333333; font-size:18px;">Boi Ghor is an online shopping site in bangladesh selling Books. Experience fast, reliable and trusted online shopping in bangladesh with home delivery anywhere across country. Find latest trends in fashion according to seasons and occasions with Boi Ghor online shopping and remain in style 24x7 and 365 days a year. Choose from your favorite brands.</p>
-				</div>
-				<div class="col-md-12" align="center" style="padding-right:5%">
-					<div class="row"> <a href="donation_request.php"><span class="abc left1_btn left1_btn-1 left1_btn-1c" style="background:#FF0000;height:50px;padding-top:.7%;font-size:22px">Donate</span></a> </div>
-				</div>
-				
-				
-			</div>
-		</div>
+	
+	
+<div class = "col-md-12" style="margin-top:11%;margin-bottom:12%;align:center;margin-left:10%;">
+	<div class= "col-md-4">
+		<a href="customer_order_view.php">
+			<button class="button button2" style="align:center; width: 190px; ">Order History</button>
+		</a>
 	</div>
+	<div class= "col-md-4" class= "text-center">
+		<a href="donation_history.php">
+			<button class="button button2" style="align:center; width: 190px">Donation History</button>
+		</a>
+	</div>
+	<div class= "col-md-4">
+	<a href="recipient_history.php">
+			<button class="button button2" style="width: 190px">Recipient History</button>
+	</a>
+	</div>
+</div>	
+	
 <!--Middle end-->
 
 <!--footer start-->

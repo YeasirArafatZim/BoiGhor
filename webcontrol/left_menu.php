@@ -14,6 +14,7 @@
 
       <li><a href="../registration_view/"><span>Registration View</span></a></li>
 	  <li><a href="../donor/"><span>Donor</span></a></li>
+	  <li><a href="../recipient/"><span>Recipient</span></a></li>
       <li><a href="../profile/"><span>Profile</span></a></li>
 
       <li class='last'><a href="../logout.php"><span>Log Out</span></a></li>

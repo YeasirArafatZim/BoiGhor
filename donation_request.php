@@ -58,7 +58,7 @@
 <!--Banner Top menu end-->
 
 <!--Middle start-->
-	<div class="row">
+	<div class="row" style="margin-bottom:3%;">
 		<div align="center" style="font-size:28px; color:#FF0000; font-weight:bold; padding-bottom:30px; padding-top:20px;">
 			Details for Book Donation
 		</div>

@@ -223,7 +223,6 @@ img {
 				$last_previous_image 	= $rrr2000['last_previous_image'];
 				$short_details 	= $rrr2000['short_details'];
 				$description 			= htmlspecialchars_decode($rrr2000['description'], ENT_QUOTES);
-				$points = $rrr2000['points'];
 			?>
 
 
@@ -256,7 +255,6 @@ img {
 				   <h4 class="price">REG : <span style="text-decoration:line-through;"><?php echo $pro_old_price; ?></span></h4>
 				   <?php } ?>
 				   <h4 class="price">PRICE : <span><?php echo $pro_price; ?></span></h4>
-					 <h4 class="price">Points : <span><?php echo $points; ?></span></h4>
 				   <div style="padding:5px 5px;">QTY :
               <input type="number" value="1" name="quantity" id="quantity" style="line-height:28px; width:80px; border:solid 1px #FF0000;">
               &nbsp;&nbsp;&nbsp;&nbsp; <a onClick="add_temp_card(<?php echo $pro_id; ?>,<?php echo $pro_price; ?>, '<?php echo $pro_name; ?>');"><span class="abc left2_btn left2_btn-1 left2_btn-1c" style="background:#FF0000;"><i class="fa fa-cart-plus" aria-hidden="true" style="font-size:18px;"></i>&nbsp;&nbsp;Add To Cart</span></a> </div>

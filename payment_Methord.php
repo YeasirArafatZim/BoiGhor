@@ -53,7 +53,7 @@
     <div align="center" style="font-size:28px; color:#FF0000; font-weight:bold; padding-bottom:30px; padding-top:20px;"> PAYMENT METHORD </div>
     <div class="col-md-1"> &nbsp; </div>
     <div class="col-md-10" style="border:solid 1px #FF0000; border-radius:15px; padding-bottom:20px;">
-      <div class="row payment_menu" style="margin-bottom:20px;"> <a href="payment_process.php" class="border">Payment Process</a><a href="payment_Methord.php">Payment Methord</a> </div>
+      <div class="row payment_menu" style="margin-bottom:20px;"> <a href="payment_process.php" class="border">Payment Process</a><a href="payment_Methord.php">Payment Method</a> </div>
       <?php
 				$p77= mysql_query ("select * from payment_methord order by id asc");
 				while ($q77=mysql_fetch_array($p77))

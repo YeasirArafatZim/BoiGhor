@@ -19,7 +19,6 @@
 	$imgname = $imgname+1;
 	$imgname = $imgname.$extention;
 	$uploaddir = $folder . $imgname;
-	$points = 50;
 	if($extention)
 	{
 
@@ -28,7 +27,7 @@
 		{
 		move_uploaded_file($_FILES['image']['tmp_name'], $uploaddir);
 
-		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '$imgname', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5','$points')");
+		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '$imgname', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5')");
 
 	} else {
 			?>
@@ -40,7 +39,7 @@
 		}
 
 	} else {
-		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5','$points')");
+		$q1 = mysql_query("insert into registration_form values('', '$name', '$email', '$phone_no', '', '$address', '', '', '', '', '', '$user_id', '$status', '$userpass_md5')");
 	}
 
 

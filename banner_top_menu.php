@@ -23,9 +23,6 @@
 	$googleplus 	= $row['googleplus'];
 	$twitter 		= $row['twitter'];
 
-	$q = mysql_query("select points from registration_form where id = '$customer_id'");
-	$q1 = mysql_fetch_array($q);
-	$points = $q1['points'];
 
 ?>
 <script type="text/javascript" language="javascript" src="js/search_script.js"></script>
@@ -43,9 +40,6 @@
    <?php } ?>
   </div>
  <div class="col-md-3" align="right" style="color:black; padding-top:15px;"> <a href="check_out.php" style="color:black;"> <img class="img_efect" src="image/cart_1.png" alt="shopping cart"><span style="font-size:18px;"> Shopping Cart <?php echo $number_of_rows; ?> item(s)</span></a></div>
-<?php if($customer_id !='') { ?>
- <div class="col-md-3" align="center" style="color:black; padding-top:15px;"> <h4>Points: <?php echo $points ?></h4></div>
-<?php } ?>
 
 </div>
 

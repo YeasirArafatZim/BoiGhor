@@ -5,7 +5,6 @@
 	$uniq_id 		= $_SESSION['uniq_id'];
 
 	$reg_id	 		        = $_REQUEST['customer_id'];
-	$payment_type 			= $_REQUEST['payment_type'];
 	$receipt_number 		= $_REQUEST['receipt_number'];
 
 
@@ -38,21 +37,8 @@
 		 $bank_acount_value = $bksh_account_number;
 	}
 
-	if($payment_type==1)
-	{
-		$q2 = mysql_query("select points from registration_form where id = '$reg_id'");
-		$r = mysql_fetch_array($q2);
-
-		if($r['points']>=$amount){
-			$q1 = mysql_query("insert into payment_process values('', '$payment_type', '$reg_id', '$uniq_id', '$receipt_number', '$bank_acount_value', '$bank_account_name', '$bank_name', '$amount', '$trxid', '$payment_date_value', '')");
-			$temp = $r['points'] - $amount;
-			 mysql_query("UPDATE registration_form SET points = '$temp' WHERE id='$reg_id'");
-		}
-
-	}
-	else if ($payment_type==2) {
-		$q1 = mysql_query("insert into payment_process values('', '$payment_type', '$reg_id', '$uniq_id', '$receipt_number', '$bank_acount_value', '$bank_account_name', '$bank_name', '$bkash_amount', '$trxid', '$payment_date_value', '$total_delivery_crge')");
-	}
+	
+	$q1 = mysql_query("insert into payment_process values('', '$payment_type', '$reg_id', '$uniq_id', '$receipt_number', '$bank_acount_value', '$bank_account_name', '$bank_name', '$bkash_amount', '$trxid', '$payment_date_value', '$total_delivery_crge')");
 
 if($q1)
 {

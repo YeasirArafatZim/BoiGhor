@@ -14,7 +14,6 @@
 	$p1= mysql_query ("select * from products_manage order by id desc");
 	$q1=mysql_fetch_array($p1);
 	$image 					= $q1['image'];
-	$points = 3*$price;
 
 
 	$time = time();
@@ -127,7 +126,7 @@ Web : www.priyoshops.com
     mail($to,$subject,$message,$headers);
 	}
 
-	$result = mysql_query("insert into products_manage values('', '$sub_cat_id', '$name', '$product_code', '$availability', '$discount', '$old_price', '$price', '$status', '$pro_image', '$description', '', '', '$pro_image_1', '$pro_image_2','$points')");
+	$result = mysql_query("insert into products_manage values('', '$sub_cat_id', '$name', '$product_code', '$availability', '$discount', '$old_price', '$price', '$status', '$pro_image', '$description', '', '', '$pro_image_1', '$pro_image_2')");
 	if($result)
 	{
 	?>

@@ -48,7 +48,6 @@
 				$sub_total = 0; $total = 0; $total_delivery_chrg = 0;
 
 				$q2 = mysql_query("select product_id, product_qty, product_price from temp_details where temp_id = '$uniq_id'");
-				$points=0;
 				while($ra2 = mysql_fetch_array($q2))
 				{
 
@@ -71,7 +70,6 @@
 					$total_price			=  number_format($total_price_int, 2, '.', '');
 
 					$sub_total 			= $sub_total + $total_price;
-					$points = $sub_total*3;
 					$sub_total_decimal 			= number_format($sub_total, 2, '.', '');
 
 
@@ -108,27 +106,8 @@
       <form class="form-horizontal" action="payment_process_insert_action.php?customer_id=<?php echo $customer_id ;?>" method="post" enctype="multipart/form-data">
 
 	  <input type="hidden" class="form-control input-sm" name="total_delivery_crge" id="total_delivery_crge" value="<?php echo $delevery_cost; ?>" placeholder="Receipt Number">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <h4 style="color:#FF0000; padding-left:15px; padding-bottom:20px;">
-            <input type="radio" name="payment_type" id="payment_type" value="1" required>
-            Point Payment</h4>
-          <div>
-
-
-
-            <span class="col-md-4 control-label" style="text-align:left; color:#666666;">Amount in Points</span>
-            <div class="col-md-8" style="padding-bottom:10px;">
-              <input type="text" class="form-control input-sm" name="amount" value="<?php echo $sub_total_decimal2*3; ?>" readonly="readonly" id="amount" placeholder="Amount">
-            </div>
-            <span class="col-md-4 control-label" style="text-align:left; color:#666666;">Payment Date</span>
-            <div class="col-md-8" style="padding-bottom:10px;">
-              <input id="payment_date" class="form-control input-sm date-picker" type="text" placeholder="YYYY-MM-DD" data-date-format="yyyy-mm-dd" name="payment_date">
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <h4 style="color:#FF0000; padding-left:15px; padding-bottom:20px;">
-            <input type="radio" name="payment_type" id="payment_type" value="2" required>
             BKash Payment &nbsp; (Our Bkash Number : +8801785551244)</h4>
           <div> <span class="col-md-4 control-label" style="text-align:left; color:#666666;">BKash Phone Number</span>
             <div class="col-md-8" style="padding-bottom:10px;">

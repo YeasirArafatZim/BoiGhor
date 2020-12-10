@@ -232,7 +232,7 @@ img {
               <div class="wrapper row">
                 <div class="preview col-md-6 col-xs-12">
                   <div class="preview-pic tab-content" align="center">
-                    <div class="tab-pane active" id="pic-1"><img style="height:450px; width:350px; margin-top: 5%;margin-bottom: 5%" src="/boighor/donation_photo/<?php echo $pro_image; ?>" /></div>
+                    <div class="tab-pane active" id="pic-1"><img style="height:450px; width:350px; margin-top: 5%;margin-bottom: 5%" src="donation_photo/<?php echo $pro_image; ?>" /></div>
                     
                   </div>
                   

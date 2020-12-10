@@ -70,6 +70,12 @@
   <!--Middle start-->
   
   
+  <?php
+	$a = mysql_query("select * from donation where status = 'Received' and quantity > 0");
+	$rowcount=mysql_num_rows($a); 
+	if($rowcount > 0){
+  ?>
+  
   
   <div class="row" style="padding:5px 0px 10px 0px;">
     <div class="col-md-12">
@@ -91,7 +97,7 @@
     <div class="col-md-3" style="padding-top:25px;">
       <div class="col-md-12" style="border:solid 1px #39619c; padding-bottom:10px;">
         <div class="row">
-          <div class="hovereffect"><img class="img-responsive" src="/boighor/donation_photo/<?php echo $image; ?>" alt="product image" style="height:200px; padding-left:60px; padding-top:30px;">
+          <div class="hovereffect"><img class="img-responsive" src="donation_photo/<?php echo $image; ?>" alt="product image" style="height:200px; padding-left:60px; padding-top:30px;">
             <div class="overlay"> <a class="info" href="donation_product_details.php?pro_id=<?php echo $id;?>">FREE ORDER</a> </div>
           </div>
         </div>
@@ -112,7 +118,7 @@
     </div>
 	<?php } ?>
   </div>
-  
+  <?php }  ?>
   
   
   

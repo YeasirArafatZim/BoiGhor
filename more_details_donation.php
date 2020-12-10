@@ -79,7 +79,7 @@
 				<div class="col-md-12" style="border:solid 1px #39619c; padding-bottom:10px;">
 					<div class="row">
 						<div class="hovereffect">
-							<img class="img-responsive" src="/boighor/donation_photo/<?php echo $image; ?>" alt="Products Image" style="height:200px; padding-left:20%">
+							<img class="img-responsive" src="donation_photo/<?php echo $image; ?>" alt="Products Image" style="height:200px; padding-left:20%">
 							<div class="overlay">
 							  <a class="info" href="donation_product_details.php?pro_id=<?php echo $id;?>">BUY NOW</a>
 							</div>

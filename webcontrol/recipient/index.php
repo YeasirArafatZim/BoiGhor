@@ -142,7 +142,7 @@
 				</div>
                 <div class="col-md-1">
 				<div class="row">
-				<img class="img-responsive" src="/boighor/donation_photo/<?php echo $image; ?>">
+				<img class="img-responsive" src="../../donation_photo/<?php echo $image; ?>">
 				</div>
 				</div>
 				

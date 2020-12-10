@@ -7,7 +7,7 @@
 	
 	$sub_cat_id         = $_REQUEST['sub_cat_id'];
 	$name          		= $_REQUEST['name'];
-	$product_code       = $_REQUEST['product_code'];
+	$author          	= $_REQUEST['author'];
 	$availability       = $_REQUEST['availability'];
 	$discount          	= $_REQUEST['discount'];
 	$old_price          = $_REQUEST['old_price'];
@@ -67,7 +67,7 @@
 	}
 	
 	 
-	$q1 = mysql_query("update products_manage set sub_cat_id = '$sub_cat_id', name = '$name', product_code = '$product_code', availability = '$availability', discount = '$discount', old_price = '$old_price', price = '$price', status = '$status', description = '$description', short_details = '$short_details' where id = '$id'");
+	$q1 = mysql_query("update products_manage set sub_cat_id = '$sub_cat_id', name = '$name', availability = '$availability', discount = '$discount', old_price = '$old_price', price = '$price', status = '$status', description = '$description', short_details = '$short_details',author = '$author' where id = '$id'");
 
 	
 	if($q1) {

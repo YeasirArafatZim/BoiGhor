@@ -8,7 +8,7 @@
 	
 	$sub_cat_id				= $r1['sub_cat_id'];
 	$name 					= $r1['name'];
-	$product_code 			= $r1['product_code'];
+	$author 				= $r1['author'];
 	$availability 			= $r1['availability'];
 	$discount 				= $r1['discount'];
 	$old_price 				= $r1['old_price'];
@@ -139,8 +139,8 @@
 					<label style="padding-top:20px;">Products Name</label>
 					<input type="text" name="name" id="name" value="<?php echo $name; ?>" class="form-control">
 					
-					<label style="padding-top:20px;">Products Code</label>
-					<input type="text" name="product_code" id="product_code" value="<?php echo $product_code; ?>" class="form-control">
+					<label style="padding-top:20px;">Author</label>
+					<input type="text" name="author" id="author" value="<?php echo $author; ?>" class="form-control">
 					
 					<label style="padding-top:20px;">Availability</label>
 					<select name="availability" class="form-control" id="availability">
@@ -164,14 +164,8 @@
                     <option <?php if($status == 'Inactive') { ?> selected="selected" <?php } ?> value="Inactive">Inactive</option>
                 	</select>
 					
-					<label style="padding-top:20px;">1st Image</label>
+					<label style="padding-top:20px;">Image</label>
 					<input name="image" type="file" class="myButton" id="image" >
-					
-					<label style="padding-top:20px;">2nd Image</label>
-					<input name="previous_image" type="file" class="myButton" id="previous_image" >
-					
-					<label style="padding-top:20px;">3th Image</label>
-					<input name="last_previous_image" type="file" class="myButton" id="last_previous_image" >
 					
 					<label style="padding-top:20px;">Short details</label>
 					<input type="text" name="short_details" id="short_details" value="<?php echo $short_details; ?>" class="form-control">

@@ -214,7 +214,7 @@ img {
 				$rrr2000 = mysql_fetch_array($result2000);
 				$pro_id 				= $rrr2000['id'];
 				$pro_name 				= $rrr2000['name'];
-				$pro_code 				= $rrr2000['product_code'];
+				$author 				= $rrr2000['author'];
 				$pro_availability 		= $rrr2000['availability'];
 				$pro_old_price 			= $rrr2000['old_price'];
 				$pro_price 				= $rrr2000['price'];
@@ -235,21 +235,16 @@ img {
               <div class="wrapper row">
                 <div class="preview col-md-6 col-xs-12">
                   <div class="preview-pic tab-content" align="center">
-                    <div class="tab-pane active" id="pic-1"><img style="height:350px; width:350px;" src="webcontrol/product_manage/photo_gallery/<?php echo $pro_image; ?>" /></div>
-                    <div class="tab-pane" id="pic-2"><img style="height:350px; width:350px;" src="webcontrol/product_manage/photo_gallery/<?php echo $previous_image; ?>" /></div>
-                    <div class="tab-pane" id="pic-3"><img style="height:350px; width:350px;" src="webcontrol/product_manage/photo_gallery/<?php echo $last_previous_image; ?>" /></div>
+                    <div class="tab-pane active" id="pic-1"><img style="height:450px; width:350px; margin-top: 5%;margin-bottom: 5%" src="webcontrol/product_manage/photo_gallery/<?php echo $pro_image; ?>" /></div>
+                    
                   </div>
-                  <ul class="preview-thumbnail nav nav-tabs" align="center">
-				  <li>&nbsp;</li>
-
-                    <li class="active" style="margin-left:20%"><a data-target="#pic-1" data-toggle="tab"><img style="border:#FF0000 1px solid;" src="webcontrol/product_manage/photo_gallery/<?php echo $pro_image; ?>" /></a></li>
-                     </ul>
+                  
                 </div>
                 <div class="details col-md-6">
                   <h3 class="product-title" style="margin-top:15%"><?php echo $pro_name; ?></h3>
 
 
-                  <h4 class="price">PRODUCT CODE: <span><?php echo $pro_code; ?></span></h4>
+                  <h4 class="price">Author: <span><?php echo $author; ?></span></h4>
 				   <h4 class="price">AVAILABILITY: <span><?php echo $pro_availability; ?></span></h4>
 				    <?php if(!empty($pro_old_price)){?>
 				   <h4 class="price">REG : <span style="text-decoration:line-through;"><?php echo $pro_old_price; ?></span></h4>

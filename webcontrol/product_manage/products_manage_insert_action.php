@@ -10,7 +10,7 @@
 	$price          		= htmlspecialchars($_REQUEST['price']);
 	$status 				= htmlspecialchars($_REQUEST['status']);
 	$description 			= htmlspecialchars($_REQUEST['description']);
-
+	$author      			= htmlspecialchars($_REQUEST['author']);
 	$p1= mysql_query ("select * from products_manage order by id desc");
 	$q1=mysql_fetch_array($p1);
 	$image 					= $q1['image'];
@@ -85,7 +85,6 @@
 	<tr style='background:#FFFFFF;'>
     <td colspan='2' style='padding-left:10px;  text-align:left; border:1px #000000 solid;'>$name</td>
 	<td colspan='2' style='padding-left:10px;  text-align:left; border:1px #000000 solid;'> <img class='img-responsive' style='height:40px; width:40px;' src='http://www.priyoshops.com/webcontrol/product_manage/photo_gallery/' .$image;></td>
-	<td colspan='1' style='padding-left:10px; text-align:left; border:1px #000000 solid;'>$product_code</td>
 	<td colspan='1' style='padding-left:10px;  text-align:left; border:1px #000000 solid;'>$discount</td>
 	 <td colspan='1' style='padding-left:10px; text-align:left; border:1px #000000 solid;'>$price</td>
 	<td colspan='1' style='padding-left:10px; text-align:left; border:1px #000000 solid;'>$availability</td>
@@ -126,7 +125,7 @@ Web : www.priyoshops.com
     mail($to,$subject,$message,$headers);
 	}
 
-	$result = mysql_query("insert into products_manage values('', '$sub_cat_id', '$name', '$product_code', '$availability', '$discount', '$old_price', '$price', '$status', '$pro_image', '$description', '', '', '$pro_image_1', '$pro_image_2')");
+	$result = mysql_query("insert into products_manage values('', '$sub_cat_id', '$name', '$availability', '$discount', '$old_price', '$price', '$status', '$pro_image', '$description', '', '', '$pro_image_1', '$pro_image_2', '$author')");
 	if($result)
 	{
 	?>

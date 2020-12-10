@@ -123,8 +123,8 @@
 					<label style="padding-top:20px;">Products Name</label>
 					<input type="text" name="name" id="name" class="form-control" placeholder=" * Products Name" required>
 					
-					<label style="padding-top:20px;">Products Code</label>
-					<input type="text" name="product_code" id="product_code" class="form-control" placeholder=" * Products Code">
+					<label style="padding-top:20px;">Author</label>
+					<input type="text" name="author" id="author" class="form-control" placeholder=" * Author" required>
 					
 					<label style="padding-top:20px;">Availability</label>
 					<select name="availability" class="form-control" id="availability">
@@ -147,14 +147,8 @@
                 	<option value="Inactive">Inactive</option>
                 	</select>
 					
-						<label style="padding-top:20px;">1st Image (Size-500X500)</label>
+					<label style="padding-top:20px;">Image (Size-500X500)</label>
 					<input name="image" type="file" class="myButton" id="image" required>
-					
-					<label style="padding-top:20px;">2nd Image</label>
-					<input name="previous_image" type="file" class="myButton" id="previous_image" >
-					
-					<label style="padding-top:20px;">3th Image</label>
-					<input name="last_previous_image" type="file" class="myButton" id="last_previous_image" >
 					
 					<label style="padding-top:20px;">Short details</label>
 					<input type="text" name="short_details" id="short_details" class="form-control" placeholder=" * Short details" required>

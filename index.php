@@ -125,7 +125,7 @@
   
   
   <?php
-		$res1 = mysql_query("select * from products_category order by cat_name asc");
+		$res1 = mysql_query("select * from products_category where status = 'Active' order by cat_name asc");
 		while($row = mysql_fetch_array($res1)){
 
 		$id 				= $row['id'];
@@ -144,7 +144,7 @@
 			while($q2 = mysql_fetch_array($p2))
 			{
 			$ID = $q2['id'];
-			$p1 = mysql_query("select * from products_manage where sub_cat_id = '$ID' order by id desc");
+			$p1 = mysql_query("select * from products_manage where sub_cat_id = '$ID' and status = 'Active' order by id desc");
 			
 			while($q1 = mysql_fetch_array($p1))
 			{
@@ -158,6 +158,8 @@
 			$old_price 				= $q1['old_price'];
 			$price 					= $q1['price'];
 			$image 					= $q1['image'];
+			if($image == "")
+			{ $image = "default.jpg";}
 			$status 				= $q1['status'];
 		?>
     <div class="col-md-3" style="padding-top:25px;">
@@ -168,7 +170,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12" style="color:#666666; font-weight:bold; text-align:justify; padding-bottom:10px; padding-top:10px;"> <?php echo $name; ?> </div>
+          <div class="col-md-12" style="color:#666666; font-weight:bold; padding-bottom:10px; padding-top:10px;"> <?php echo $name; ?> </div>
           <div>
             <div class="col-md-6">
               <?php if(!empty($old_price)){?>

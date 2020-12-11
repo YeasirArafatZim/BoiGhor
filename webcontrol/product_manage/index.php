@@ -107,7 +107,7 @@
 				<form method="post" action="products_manage_insert_action.php" enctype="multipart/form-data">
 			
 					<label style="padding-top:20px;">Sub Products Category Name</label>
-					<select name="sub_cat_id" id="sub_cat_id" class="form-control" onChange="product_view();">
+					<select name="sub_cat_id" id="sub_cat_id" required class="form-control" onChange="product_view();">
 					<option value="" selected>Select Sub Category</option>
 					<?php
 						$q1 = mysql_query("select * from products_sub_category where status = 'Active' order by id desc");
@@ -148,13 +148,12 @@
                 	</select>
 					
 					<label style="padding-top:20px;">Image (Size-500X500)</label>
-					<input name="image" type="file" class="myButton" id="image" required>
+					<input name="image" type="file" class="myButton" id="image">
 					
-					<label style="padding-top:20px;">Short details</label>
-					<input type="text" name="short_details" id="short_details" class="form-control" placeholder=" * Short details" required>
+					
 					
 					<label style="padding-top:20px;">Description</label>
-					<textarea name="description" class="form-control" rows="20"></textarea>
+					<textarea name="description" id="description" class="form-control" rows="20"></textarea>
 					
 					<div style="padding-top:10px;"></div>
 					<button class="btn btn-info">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-warning" type="reset">Reset</button>
@@ -229,6 +228,7 @@
 				$price 					= $q1['price'];
 				$status 				= $q1['status'];
 				$image 					= $q1['image'];
+				if($image == "") { $image = "default.jpg";}
 				
 				$q2 = mysql_query("select sub_cat_name from  products_sub_category where id = '$sub_cat_id'");
               	$r2 = mysql_fetch_array($q2);

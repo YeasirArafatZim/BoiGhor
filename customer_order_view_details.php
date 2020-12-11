@@ -107,6 +107,7 @@
 					$q20 = mysql_query("select * from  products_manage where id = '$product_id'");
 					$r20 = mysql_fetch_array($q20);
 					$image 	        = $r20['image'];
+					if($image == "") { $image = "default.jpg";}
 					$product_name 	= $r20['name'];
 					$product_code 	= $r20['product_code'];
 			 ?>

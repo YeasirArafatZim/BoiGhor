@@ -219,6 +219,8 @@ img {
 				$pro_old_price 			= $rrr2000['old_price'];
 				$pro_price 				= $rrr2000['price'];
 				$pro_image 				= $rrr2000['image'];
+				if($pro_image == "")
+				{ $pro_image = "default.jpg"; }
 				$previous_image 		= $rrr2000['previous_image'];
 				$last_previous_image 	= $rrr2000['last_previous_image'];
 				$short_details 	= $rrr2000['short_details'];

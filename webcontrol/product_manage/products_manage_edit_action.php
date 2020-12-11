@@ -7,14 +7,13 @@
 	
 	$sub_cat_id         = $_REQUEST['sub_cat_id'];
 	$name          		= $_REQUEST['name'];
-	$author          	= $_REQUEST['author'];
+	$author          	= htmlspecialchars($_REQUEST['author'], ENT_QUOTES);
 	$availability       = $_REQUEST['availability'];
 	$discount          	= $_REQUEST['discount'];
 	$old_price          = $_REQUEST['old_price'];
 	$price          	= $_REQUEST['price'];
 	$status             = $_REQUEST['status'];
-	$description        = $_REQUEST['description'];
-	$short_details        = $_REQUEST['short_details'];
+	$description        = htmlspecialchars($_REQUEST['description'], ENT_QUOTES);
 	
 	$present_image = $r111['image'];
 	$previous_image = $r111['previous_image'];
@@ -67,7 +66,7 @@
 	}
 	
 	 
-	$q1 = mysql_query("update products_manage set sub_cat_id = '$sub_cat_id', name = '$name', availability = '$availability', discount = '$discount', old_price = '$old_price', price = '$price', status = '$status', description = '$description', short_details = '$short_details',author = '$author' where id = '$id'");
+	$q1 = mysql_query("update products_manage set sub_cat_id = '$sub_cat_id', name = '$name', availability = '$availability', discount = '$discount', old_price = '$old_price', price = '$price', status = '$status', description = '$description',author = '$author' where id = '$id'");
 
 	
 	if($q1) {

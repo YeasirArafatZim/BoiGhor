@@ -16,7 +16,6 @@
 	$status 				= $r1['status'];
 	$image 					= $r1['image'];
 	$description 			= $r1['description'];
-	$short_details 			= $r1['short_details'];
 ?>
 
 <!DOCTYPE html>
@@ -167,11 +166,8 @@
 					<label style="padding-top:20px;">Image</label>
 					<input name="image" type="file" class="myButton" id="image" >
 					
-					<label style="padding-top:20px;">Short details</label>
-					<input type="text" name="short_details" id="short_details" value="<?php echo $short_details; ?>" class="form-control">
-					
 					<label style="padding-top:20px;">Description</label>
-					<textarea name="description"  class="form-control" rows="20"><?php echo $description; ?></textarea>
+					<textarea name="description" id="description" class="form-control" rows="20"><?php echo $description; ?></textarea>
 				
 					<div style="padding-top:10px;"></div>
 					<button class="btn btn-info">Update</button> &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-warning" type="reset">Reset</button>

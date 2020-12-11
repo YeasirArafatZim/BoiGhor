@@ -67,7 +67,7 @@
 
 				$id= 1;
 
-				$q001 = mysql_query("select * from products_manage where name like '%$search_field%' or product_code like '%$search_field%' order by id desc");
+				$q001 = mysql_query("select * from products_manage where name like '%$search_field%' and status = 'Active' order by id desc");
 				while($row = mysql_fetch_array($q001)){
 				$pro_id 				= $row['id'];
 				$name 					= $row['name'];
@@ -82,7 +82,7 @@
 			<div class="col-md-3" style="padding-top:30px;">
 				<div class="col-md-12" style="border:solid 1px #FF0000; padding-bottom:10px;">
 					<div class="row">
-						<div class="hovereffect">
+						<div class="hovereffect" style=" height: 250px">
 							<img class="img-responsive" src="webcontrol/product_manage/photo_gallery/<?php echo $image; ?>" alt="Products Image">
 							<div class="overlay">
 							   <a class="info" href="product_details.php?pro_id=<?php echo $pro_id;?>">BUY NOW</a>

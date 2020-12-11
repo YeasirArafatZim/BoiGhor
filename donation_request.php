@@ -83,7 +83,7 @@
 					
 					<span class="col-md-4 control-label" style="text-align:left; color:#666666;">Book Photo</span>
 					<div class="col-md-8" style="padding-bottom:10px;">
-					  <input type="file" name="image" id="image" />
+					  <input type="file" name="image" id="image" required/>
 					</div>
 					
 					<span class="col-md-4 control-label" style="text-align:left; color:#666666;">Quantity</span>

@@ -59,8 +59,13 @@
 				
 					<label style="padding-top:20px;">Status</label>
 					<select name="status" class="form-control" id="status">
+					<?php  if ($status == Active) { ?>
                		<option value="<?php echo $status; ?>" selected="selected"><?php echo $status; ?></option>
                 	<option value="Inactive">Inactive</option>
+					<?php } else{ ?>
+					<option value="<?php echo $status; ?>" selected="selected"><?php echo $status; ?></option>
+                	<option value="Active">Active</option>
+					<?php } ?>
                 	</select>
 				
 					<div style="padding-top:10px;"></div>

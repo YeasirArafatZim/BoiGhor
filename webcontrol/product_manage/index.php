@@ -228,7 +228,7 @@
 				$price 					= $q1['price'];
 				$status 				= $q1['status'];
 				$image 					= $q1['image'];
-				if($image == "") { $image = "default.jpg";}
+				if($image == "") { $image = "default.png";}
 				
 				$q2 = mysql_query("select sub_cat_name from  products_sub_category where id = '$sub_cat_id'");
               	$r2 = mysql_fetch_array($q2);

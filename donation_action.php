@@ -1,11 +1,15 @@
 <?php
 	session_start();
 	require_once("webcontrol/connect_db.php");
-
-	$name 				= htmlspecialchars($_REQUEST['name']);
-	$author				= htmlspecialchars($_REQUEST['author']);
+	
+	
+	$type = $_REQUEST['donation_type'];
 	$user_id 			= $_SESSION['customer_id'];
 	$status 			= 'Pending';
+	
+	if($type == 1){
+	$name 				= htmlspecialchars($_REQUEST['name']);
+	$author				= htmlspecialchars($_REQUEST['author']);
 	$qnt  				= htmlspecialchars($_REQUEST['quantity']);
 	$date 				= date("d-m-Y");
 	
@@ -38,12 +42,19 @@
 	} else {
 		$q1 = mysql_query("insert into donation values('', '$user_id', '$book_name', '$author', '$imgname', '$qnt', '$status')");
 	}
+} else if($type == 2)
+{
+	$phn = $_REQUEST['bksh_account_number'];
+	$amount = $_REQUEST['bkash_amount'];
+	$trxid = $_REQUEST['trxid'];
+	$date = $_REQUEST['donation_date'];
+	$q1 = mysql_query("insert into money_donation values('', '$user_id', '$phn', '$amount', '$trxid', '$date', '$status')");
+}
 
 
 if($q1)
 
 {
-
 		$_SESSION['insert_msg'] = "Thanks for your Donation.";
 
 ?>
@@ -54,10 +65,10 @@ if($q1)
 <?php
 } else {
 
-	$_SESSION['insert_msg'] = "Donation failed. Please try again.";
+	$_SESSION['insert_msg'] = "Donation failed. Please filled up all the appropriate fields.";
 ?>
 	<script language="javascript" type="text/javascript">
-		alert("Donation failed. Please try again.");
+		alert("Donation failed. Please filled up all the appropriate fields.");
 		location.replace("donation_request.php");
 	</script>
 <?php

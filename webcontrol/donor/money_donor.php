@@ -38,7 +38,7 @@
 		</div>
 		<div class="col-md-10">
 			<div class="row shadow1" style="padding-top:10px; padding-bottom:10px; #CCCCCC; margin-top:15px; padding-left:15px;">
-			<strong style="font-size:20px;">Recipient management</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Control panel</span>
+			<strong style="font-size:20px;">Donor management</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>Control panel</span>
 			</div>
 			
 			<div class="row" style="padding-top:5px; padding-bottom:5px; border-top:solid 1px #CCCCCC; border-bottom:solid 1px #CCCCCC; background-color:#F8F8F8; margin-top:40px;">
@@ -47,46 +47,39 @@
 				<strong>Sr. No</strong>
 				</div>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-2">
 				<div class="row">
 				<strong>User Id</strong>
 				</div>
 			</div>
-			<div class="col-md-1">
+			<div class="col-md-2">
 				<div class="row">
 				<strong>Name</strong>
 				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="row">
-				<strong>Book Name</strong>
+				<strong>Mobile NO</strong>
 				</div>
 			</div>
 			<div class="col-md-1">
 				<div class="row">
-				 <strong>Author</strong>
+				 <strong>TrxID</strong>
 				</div>
 			</div>
 			<div class="col-md-1">
 				<div class="row">
-				 <strong>Quantity</strong>
+				 <strong>Amount</strong>
 				</div>
 			</div>
-			
-            <div class="col-md-1">
-				<div class="row" align="center">
-				 <strong>Image</strong>
+			<div class="col-md-1">
+				<div class="row">
+				 <strong>Date</strong>
 				</div>
 			</div>
-			
-			<div class="col-md-2">
-				<div class="row" align="center">
-				<strong>Message</strong>
-				</div>
-				</div>
 			
 			<div class="col-md-1">
-				<div class="row" align="center">
+				<div class="row">
 				 <strong>Status</strong>
 				</div>
 			</div>
@@ -98,25 +91,22 @@
 			</div>
 			<?php
 				$sn = 1;
-				$p1= mysql_query ("select * from recipient order by id desc");
+				$p1= mysql_query ("select * from money_donation order by id desc");
 				while($q1=mysql_fetch_array($p1))
 				{
 				$id					= $q1['id'];
 				$uid 				= $q1['user_id'];
-				$message			= $q1['message'];
-				$status			 	= $q1['status'];
-				$don_id				= $q1['don_id'];
-				$p= mysql_query ("select * from donation where id = '$don_id'");
-				$r = mysql_fetch_row($p);
+				$status  			= $q1['status'];
+				$phn				= $q1['bks_phn'];
+				$amount				= $q1['amount'];
+				$trxid				= $q1['trxid'];
+				$date				= $q1['date'];
 				
-				$book_name 			= $r[2];
-				$image 				= $r[4];
-				$author				= $r[3];
-				$qnt				= $r[5];
-				$p= mysql_query ("select name,user_id from registration_form where id = '$uid'");
-				$r = mysql_fetch_row($p);
-				$name = $r[0];
-				$user_id = $r[1];
+				$result = mysql_query("SELECT user_id,name,phone_no FROM registration_form WHERE id = $uid");
+				$row = mysql_fetch_row($result);
+				$user_id  = $row[0];
+				$name = $row[1];
+				
 				
 				
 			?>
@@ -126,57 +116,51 @@
 				<?php echo $sn++; ?>
 				</div>
 				</div>
-				<div class="col-md-1">
+				<div class="col-md-2">
 				<div class="row">
 				<?php echo $user_id; ?>
 				</div>
 				</div>
-				<div class="col-md-1">
+				<div class="col-md-2">
 				<div class="row">
 				<?php echo $name; ?>
 				</div>
 				</div>
 				<div class="col-md-2">
 				<div class="row">
-				<?php echo $book_name; ?>
+				<?php echo $phn; ?>
 				</div>
 				</div>
 				<div class="col-md-1">
 				<div class="row">
-				<?php echo $author; ?>
-				</div>
-				</div>
-				<div class="col-md-1">
-				<div class="row">
-				<?php echo $qnt; ?>
+				<?php echo $trxid; ?>
 				</div>
 				</div>
                 <div class="col-md-1">
 				<div class="row">
-				<img class="img-responsive" src="../../donation_photo/<?php echo $image; ?>">
+				<?php echo $amount; ?>
 				</div>
 				</div>
 				
-				<div class="col-md-2">
-				<div class="row" align="center">
-				<?php echo $message; ?>
+				<div class="col-md-1">
+				<div class="row">
+				<?php echo $date; ?>
 				</div>
 				</div>
 				<div class="col-md-1">
-				<div class="row" align="center">
+				<div class="row">
 				<?php echo $status; ?>
 				</div>
 				</div>
 				<div class="col-md-1">
 				<div class="row">
-					<a href= "action.php?rid=<?php echo $id; ?>">
+					<a href= "m_action.php?donation_id=<?php echo $id; ?>">
 					  <div class="col-md-2">
-					  	<button type="button" <?php if($status == "Pending") { ?> class="btn btn-primary" <?php } elseif($status == "Your request Accepted") { ?>  class="btn btn-success" disabled <?php } else { ?> class="btn btn-danger" disabled <?php } ?> >Send Gift</button>
+					  	<button type="button" <?php if($status == "Pending") { ?> class="btn btn-primary" <?php } else { ?>  class="btn btn-success" disabled <?php } ?> >Received</button>
 					  </div>
 					</a>
 				</div>
 				</div>
-				
 			</div>
 			<?php
 				}

@@ -238,6 +238,10 @@
 			$product_name 	= $ras2['name'];
 			$product_code 	= $ras2['product_code'];
 			$font_item 		= $ras2['image'];
+			if($font_item == "")
+			{
+				$font_item = "default.png";
+			}
 			
 			
 			

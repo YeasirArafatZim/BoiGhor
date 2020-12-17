@@ -123,6 +123,11 @@
 					$sub_total 			= $sub_total + $total_price;			
 					$sub_total_decimal 			= number_format($sub_total, 2, '.', '');
 					
+					if($image == "")
+					{
+						$image = "default.png";
+					}
+					
 				?>
 					
 			<div class="col-md-12" style="border-top:solid 1px #FF0000;">

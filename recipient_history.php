@@ -78,7 +78,7 @@
     <tbody>
    <?php
 				$i=1;
-				$q1 = mysql_query("select * from recipient where user_id = '$customer_id' order by date desc");
+				$q1 = mysql_query("select * from recipient where user_id = '$customer_id' order by id desc");
 				while($r1 = mysql_fetch_array($q1))
 				{
 					
@@ -103,7 +103,7 @@
             <td class="hidden-480"><?php echo $author; ?></td>
 			<td><div class="col-md-1">
 				<div class="row">
-				<img class="img-responsive" src="../../donation_photo/<?php echo $image; ?>">
+				<img class="img-responsive" src="donation_photo/<?php echo $image; ?>">
 				</div>
 				</div>	</td>	
 			<td><?php echo $date;?>	</td>

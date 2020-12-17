@@ -14,7 +14,7 @@
 	$sql1 = mysql_query("update donation set quantity = $qnt where id = $don_id  ");
 	if($qnt == 0)
 	{
-		$sql = mysql_query("update recipient set status = 'Sorry another person selected' where id != $rid and don_id = $don_id");
+		$sql = mysql_query("update recipient set status = 'Sorry another person selected' where id != $rid and don_id = $don_id and status != 'Your request Accepted'");
 	}
 	header("Location: index.php");
 ?>

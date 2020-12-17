@@ -117,6 +117,25 @@
 </div>
 <?php } ?>
 
+<?php
+		$sum = 0;
+		$uid = $_SESSION['customer_id'];
+		$q1 = mysql_query("select amount from money_donation where user_id = '$uid' and status = 'Received'");
+		while($r1 = mysql_fetch_array($q1))
+		{
+			$sum = $sum + $r1['amount'];
+		}
+		if($sum > 0){
+?>
+
+		<div class="row" style="border:solid 1px #00acee; border-radius:8px; margin-left:20px; margin-right:20px;">
+			<div class="col-md-12" align="center" style="font-size:24px; padding:50px 50px;">
+				Your total donated money is <?php echo $sum ?> TK.
+			</div>
+		</div>
+<?php } ?>
+
+
 <!--Middle end-->
 
 <!--footer start-->

@@ -13,7 +13,8 @@
       <li><a href="../payment_methord_manage/"><span>Payment Method</span></a></li>
 
       <li><a href="../registration_view/"><span>Registration View</span></a></li>
-	  <li><a href="../donor/"><span>Donor</span></a></li>
+	  <li><a href="../donor/"><span>Book Donor</span></a></li>
+	  <li><a href="../donor/money_donor.php"><span>Money Donor</span></a></li>
 	  <li><a href="../recipient/"><span>Recipient</span></a></li>
       <li><a href="../profile/"><span>Profile</span></a></li>
 

@@ -10,25 +10,43 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title><?php require_once("title.php"); ?></title>
-	<?php require_once("metatag.php"); ?>
-<!--Banner start-->	
-    <script src="js/jquery.min.js"></script> 
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-<!--Banner end-->
-
+<title><?php require_once("title.php"); ?></title>
+<?php require_once("metatag.php"); ?>
+<!--Bootstrap start-->
+<script src="js/jquery.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<!--Bootstrap end-->
 <!--Top menu start-->
-	<link rel="stylesheet" href="top_menu/styles.css">
-   <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-   <script src="top_menu/script.js"></script>
+<link rel="stylesheet" href="top_menu/styles.css">
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="top_menu/script.js"></script>
 <!--Top menu end-->
-
-<!--Anather start-->	
-	<link href="css_2/styles_1.css" rel="stylesheet">
+<!--Back to Top start-->
+<!-- CSS reset -->
+<link rel="stylesheet" href="css/style.css">
+<!-- Gem style -->
+<script src="js/modernizr.js"></script>
+<!-- Modernizr -->
+<!--Back to Top end-->
+<!--Back to Top start-->
+<link rel="stylesheet" href="css/resmenu.css">
+<!-- Gem style -->
+<script src="js/resmenu.js"></script>
+<!-- Modernizr -->
+<!--Back to Top end-->
+<!--Left menu start-->
+<link rel="stylesheet" href="left_menu/styles.css">
+<!--Left menu end-->
+<!--slider start-->
+<link rel="stylesheet" type="text/css" href="slider/images/demo/cloud-fly/engine1/style.css" />
+<script type="text/javascript" src="slider/images/demo/jquery.js"></script>
+<!--slider menu end-->
+<!--Anather start-->
+<link href="css_2/image_effect.css" rel="stylesheet">
+<link href="css_2/styles_1.css" rel="stylesheet">
 <!--Anather end-->
-<link rel="icon" href="image/fav.png" type="image/png" />
+<link rel="icon" href="" type="image/png" />
 </head>
 <body>
 
